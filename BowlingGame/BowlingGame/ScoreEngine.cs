@@ -37,29 +37,27 @@ namespace BowlingGame
                 }
                 else if (frames[i].LastKnockInfo == KnockType.Strike)
                 {
-                    //if (frames.Count > i + 1)
-                    //{
-                    //    frames[i].Score += frames[i + 1].Knocks[ThrowOrder.First].PinsKnocked;
-                    //    if (frames[i + 1].Knocks.Count > 1)
-                    //    {
-                    //        frames[i].Score += frames[i + 1].Knocks[ThrowOrder.Second].PinsKnocked;
-                    //    }
-                    //}
+                    if (frames.Count > i + 1)
+                    {
+                        frames[i].Score += frames[i + 1].Knocks[ThrowOrder.First].PinsKnocked;
+                        if (frames[i + 1].Knocks.Count > 1)
+                        {
+                            frames[i].Score += frames[i + 1].Knocks[ThrowOrder.Second].PinsKnocked;
+                        }
+                    }
 
-                    //if (frames.Count > i + 2)
-                    //{
-                    //    if (frames[i + 1].LastKnockInfo == KnockType.Strike)
-                    //    {
-                    //        frames[i].Score += frames[i + 2].Knocks[ThrowOrder.First].PinsKnocked;
-                    //    }
-                    //}
+                    if (frames.Count > i + 2)
+                    {
+                        if (frames[i + 1].LastKnockInfo == KnockType.Strike)
+                        {
+                            frames[i].Score += frames[i + 2].Knocks[ThrowOrder.First].PinsKnocked;
+                        }
+                    }
 
-                    //if (i != 0)
-                    //{
-                    //    frames[i].Score += frames[i - 1].Score;
-                    //}
-                    
-                    frames[i].Score = Constants.ExtraSrores;
+                    if (i != 0)
+                    {
+                        frames[i].Score += frames[i - 1].Score;
+                    }
                 }
                 else
                 {
